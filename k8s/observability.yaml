@@ -140,18 +140,18 @@ data:
         endpoint: "jaeger:4317"
         tls:
           insecure: true
-      logging:
+      debug:
         verbosity: detailed
     service:
       pipelines:
         traces:
           receivers: [otlp]
           processors: [batch]
-          exporters: [otlp, logging]
+          exporters: [otlp, debug]
         metrics:
           receivers: [otlp]
           processors: [batch]
-          exporters: [prometheus, logging]
+          exporters: [prometheus, debug]
 ---
 apiVersion: apps/v1
 kind: Deployment
