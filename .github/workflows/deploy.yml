@@ -73,10 +73,8 @@ jobs:
             --from-literal=AZURE_STORAGE_CONNECTION_STRING="${{ secrets.AZURE_STORAGE_CONNECTION_STRING }}" \
             --dry-run=client -o yaml | kubectl apply -f -
 
-      - name: Replace username in manifests and deploy
+      - name: Deploy to AKS
         run: |
-          sed -i "s/achanandhi/${{ github.repository_owner }}/g" k8s/backend-deployment.yaml
-          sed -i "s/achanandhi/${{ github.repository_owner }}/g" k8s/frontend-deployment.yaml
           kubectl apply -f k8s/backend-deployment.yaml
           kubectl apply -f k8s/frontend-deployment.yaml
 

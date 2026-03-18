@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ghcr.io/<USERNAME>/fullstack-demo-backend:latest
+        image: ghcr.io/achanandhi-m/fullstack-demo-backend:latest
         ports:
         - containerPort: 3000
         env:
