@@ -46,6 +46,10 @@ spec:
             secretKeyRef:
               name: app-secrets
               key: AZURE_STORAGE_CONNECTION_STRING
+        - name: OTEL_SERVICE_NAME
+          value: "backend-api"
+        - name: OTEL_EXPORTER_OTLP_ENDPOINT
+          value: "http://otel-collector.observability.svc.cluster.local:4318"
         - name: AZURE_BLOB_CONTAINER
           value: "uploads"
         livenessProbe:
